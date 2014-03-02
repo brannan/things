@@ -1,0 +1,2 @@
+use <Parametric_Snap_Pins/pins2.scad>;
+
