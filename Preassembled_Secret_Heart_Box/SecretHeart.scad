@@ -4,9 +4,9 @@ assembly();
 //animation();
 
 //First word
-word1="";
+word1="Hello";
 //Second word
-word2="";
+word2="World";
 //Height of words
 fontsize=6;
 Font = "write/Letters.dxf";//["write/Letters.dxf":Basic,"write/orbitron.dxf":Futuristic,"write/BlackRose.dxf":Fancy]
@@ -21,9 +21,9 @@ x_hinge=23;
 //Wall Thickness - Default .8
 T=1;
 //Depth of sliding nubs - Default 2
-nub=3;//[1:3]
+nub=2;//[1:3]
 //Tolerance between moving parts - .4 default
-tol=0.5;
+tol=0.6;
 //Smoother renders slower
 quality=2;//[1:Draft,2:Medium,4:Fine]
 
