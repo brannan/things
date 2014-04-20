@@ -2,6 +2,7 @@
 // Note: the assembly is animated
 
 use <MCAD/involute_gears.scad>
+use <MCAD/boxes.scad>
 //use <../pin2.scad>
 use <write/Write.scad>
 
@@ -103,7 +104,8 @@ module gear1(){
 render()
 intersection(){
 	translate([0,0,-rf1*cp])rotate([0,theta-90,0])rotate([0,0,45])difference(){
-		cube(size=rf1, center=true);	
+		//cube(size=rf1, center=true);	
+		roundedBox(size=[rf1, rf1, rf1], radius=2);
 		rotate([0,0,45-180])translate([0,rf1/sqrt(2)-3,rf1/2])monogram(h=1);
 		text(word1);
 		rotate([-90,0,-90])text(word2);
