@@ -11,17 +11,17 @@ choose(i=object);
 //Choose which part to render (assembly is only for viewing)
 object=4;//[0:Center,1:Large Gear,2:Small Gear,3:Pin,4:Plate,5:Assembly]
 //Numbers of teeth on gears
-type=0;//[0:18 & 9,1:9 & 6,2:18 & 15]
+type=1;//[0:18 & 9,1:9 & 6,2:18 & 15]
 //Space between gear teeth
 Backlash=0.5;
 // Corner radius
 cornerRadius=2;
 //First word on large gear
-word1="Test";
+word1="One";
 //Second word on large gear
-word2="This";
+word2="Two";
 //Third word on large gear
-word3="Gear";
+word3="Three";
 //Height of words
 fontsize=6;
 Font = "write/Letters.dxf";//["write/Letters.dxf":Basic,"write/orbitron.dxf":Futuristic,"write/BlackRose.dxf":Fancy]
@@ -108,7 +108,7 @@ intersection(){
 	translate([0,0,-rf1*cp])rotate([0,theta-90,0])rotate([0,0,45])difference(){
 		//cube(size=rf1, center=true);	
 		roundedBox(size=[rf1, rf1, rf1], radius=cornerRadius);
-		rotate([0,0,45-180])translate([0,rf1/sqrt(2)-3,rf1/2])monogram(h=1);
+		//rotate([0,0,45-180])translate([0,rf1/sqrt(2)-3,rf1/2])monogram(h=1);
 		text(word1);
 		rotate([-90,0,-90])text(word2);
 		rotate([90,-90,0])text(word3);
