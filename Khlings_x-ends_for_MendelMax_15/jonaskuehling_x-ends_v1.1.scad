@@ -63,7 +63,7 @@ idler_elevation = xend_body_height/2+rod_dia/2+belt_elevation+belt_height+idler_
 // RENDER
 // "idler=false" for motor-x-end, "idler=true" for idler-x-end
 
-assembly(idler=false, misumi=false, zstop=true);
+assembly(idler=true, misumi=false, zstop=true);
 
 // -------------------------------------------------
 
