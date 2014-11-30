@@ -6,7 +6,7 @@ nutR = 3.25;
 nutH = 3;
 corner_cut = 26;
 
-studding_dia = 8.0;
+studding_dia = 6.0;  // default 8
 shaft_dia = 7.0;
 
 module coupling(c){

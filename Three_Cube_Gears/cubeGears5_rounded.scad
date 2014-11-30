@@ -5,23 +5,23 @@ use <MCAD/involute_gears.scad>
 use <MCAD/boxes.scad>
 //use <../pin2.scad>
 use <write/Write.scad>
-
+%cylinder(h=.5, r=170/2);
 choose(i=object);
 
 //Choose which part to render (assembly is only for viewing)
 object=4;//[0:Center,1:Large Gear,2:Small Gear,3:Pin,4:Plate,5:Assembly]
 //Numbers of teeth on gears
-type=1;//[0:18 & 9,1:9 & 6,2:18 & 15]
+type=0;//[0:18 & 9,1:9 & 6,2:18 & 15]
 //Space between gear teeth
 Backlash=0.5;
 // Corner radius
 cornerRadius=2;
 //First word on large gear
-word1="One";
+word1="";
 //Second word on large gear
-word2="Two";
+word2="";
 //Third word on large gear
-word3="Three";
+word3="";
 //Height of words
 fontsize=6;
 Font = "write/Letters.dxf";//["write/Letters.dxf":Basic,"write/orbitron.dxf":Futuristic,"write/BlackRose.dxf":Fancy]
@@ -59,16 +59,44 @@ module choose(i=0){
 	if(i==2)gear2();
 	if(i==3)pinpeg();
 	if(i==4){
-		for(j=[0:3]){
-			translate([40*(j-1.5),40*(j%2),0])rotate([0,0,10])gear1();
-			translate([40*(j-1.5),40*((j+1)%2),0])rotate([0,0,10])gear2();
-			translate([20*j,-40,0])pinpeg();
-			translate([20*(j-0.5),-40,0])pinpeg();
-		}
-		translate([-40,-40,rf1*cp])center();
+		//square_plate();
+		round_plate();
+		
 	}
 	if(i==5)assembly();
 	//if(i<5)build_plate(build_plate_selector,build_plate_manual_x,build_plate_manual_y);
+}
+
+module round_plate() {
+	translate([0,0,rf1*cp]) center();
+	translate([-40, 20, 0]) gear1();
+	translate([-40,-25, 0]) gear1();
+	translate([40,  20, 0]) gear1();
+	translate([40, -25, 0]) gear1();
+	translate([0,   35, 0]) rotate([0,0,100]) gear2();
+	translate([-25, 50, 0]) rotate([0,0,30]) gear2(); 
+	translate([3,  -33, 0]) rotate([0,0,25]) gear2();
+	translate([-18,-55, 0]) rotate([0,0,-10]) gear2(); 
+	translate([5,   55, 0]) rotate([0,0,90]) pinpeg();	 
+	translate([5,   65, 0]) rotate([0,0,90]) pinpeg();	 
+	translate([30,   50, 0]) rotate([0,0,90]) pinpeg();	 
+	translate([30,   60, 0]) rotate([0,0,90]) pinpeg();
+
+	translate([15,   -55, 0]) rotate([0,0,90]) pinpeg();	 
+	translate([15,   -65, 0]) rotate([0,0,90]) pinpeg();
+	 
+	translate([62,  -2, 0]) rotate([0,0,0]) pinpeg();	 
+	translate([-62, -2, 0]) rotate([0,0,0]) pinpeg();		
+}
+
+module square_plate(){
+	for(j=[0:3]){
+			translate([40*(j-1.5),40*(j%2),0])rotate([0,0,5])gear1();
+			translate([40*(j-1.5),40*((j+1)%2),0])rotate([0,0,10])gear2();
+			translate([20*j,-40,0])pinpeg();
+			translate([20*(j-0.5),-40,0]) rotate([0,0,90]) pinpeg();
+		}
+		translate([-38,-38,rf1*cp])center();
 }
 
 module assembly()

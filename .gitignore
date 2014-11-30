@@ -1,3 +1,10 @@
 *.gcode
+*.SLDPRT
+*.blend1
+*.skp
+*.stp
+*.FCStd1
+*.SLDASM
+*.vc3
 Prusa_Z_Rod_Constraint/sj-zstab.stl
 Anti_backlash_Z_isolator_for_3D_printers/z-isolator_v2.stl
