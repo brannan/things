@@ -29,14 +29,14 @@
 // Volume of the scoop in milliliters.
 volume = 237;
 
-// Tickness of the scoop in millimeters.
+// Thickness of the scoop in millimeters.
 thickness = 2;
 
 // Length of the handle in millimeters.  Minimum handleWidth + thickness * 4
 handleLength = 50;
 
 // Tickness of the handle in millimeters.
-handleTickness = 5;
+handleTickness = 10;
 
 // Width of the handle in millimeters.  Minimum hangingHoleDistance * 2 + 2 mm.
 handleWidth = 20;
@@ -75,10 +75,8 @@ module scoop() {
 module handle() {
 	difference() {
 		union() {
-			#cube([handleLength - handleWidth, handleWidth, handleTickness], center = true);
-			cube([handleLength - handleWidth - hangingHoleRadius, 
-					handleTickness, 
-					handleTickness * 2], center = true);
+			cube([handleLength - handleWidth, handleWidth, handleTickness], center = true);
+
 			translate([(handleLength - handleWidth) / 2, 0, 0]) 
 				cylinder(h = handleTickness, r = handleWidth / 2, center = true, $fn=50);
 		}
